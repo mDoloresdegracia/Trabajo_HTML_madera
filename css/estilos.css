@@ -369,3 +369,29 @@ footer a[href="#"] {
     margin-top: 5px;
     margin-bottom: 0;
 }
+
+/* 1. Definimos la forma y el color del LED */
+.led-indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #f39c12; /* Color ámbar cálido */
+    border-radius: 50%;        /* Esto lo hace circular */
+    margin: 20px auto;         /* Lo centra y le da aire */
+    position: relative;
+    box-shadow: 0 0 5px #f39c12;
+    animation: brilloLed 4s infinite ease-in-out; /* Llama a la animación de abajo */
+}
+
+/* 2. Definimos la animación (el concepto de "respirar") */
+@keyframes brilloLed {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px #f39c12;
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.3);
+        box-shadow: 0 0 20px #f1c40f, 0 0 40px #f39c12;
+        opacity: 1;
+    }
+}
