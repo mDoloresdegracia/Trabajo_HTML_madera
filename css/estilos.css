@@ -191,9 +191,10 @@ footer a[href="#"] {
 
 .producto img {
     width: 100%;
-    height: 350px;
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
-    background-color: #f5f5f5; /* Fondo gris si no hay imagen aún */
+    /* Eliminamos 'height: 350px' para que respete el 'height: auto' de abajo */
+    aspect-ratio: 16 / 9; /* Esto mantiene el tamaño uniforme sin deformar */
+    object-fit: cover; 
+    background-color: #f5f5f5;
     margin-bottom: 15px;
     transition: transform 0.3s ease;
 }
@@ -394,4 +395,23 @@ footer a[href="#"] {
         box-shadow: 0 0 20px #f1c40f, 0 0 40px #f39c12;
         opacity: 1;
     }
+
+}
+
+/* ============================================================
+   BUENAS PRÁCTICAS: CONTROL DE IMÁGENES Y FOOTER
+   ============================================================ */
+
+/* El CSS redefine el tamaño visual de las imágenes para que sean responsivas */
+img {
+    max-width: 100%; /* Evita que la imagen sea más ancha que la pantalla */
+    height: auto;    /* Mantiene la proporción original (evita que se deforme) */
+    display: block;  /* Elimina espacios innecesarios bajo la imagen */
+    margin: 10px auto;
+}
+
+/* Estilo para los enlaces de redes sociales */
+.redes-sociales a:hover {
+    color: #ff9900; /* Efecto al pasar el ratón: color madera/ámbar */
+    text-decoration: underline;
 }
